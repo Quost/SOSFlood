@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sos_flood/presentation/pages/forget_password_sos_page.dart';
+import 'package:sos_flood/presentation/pages/form_sos_page.dart';
 import 'package:sos_flood/presentation/pages/register_sos_page.dart';
 
 import '../widgets/button_sos_widget.dart';
@@ -10,10 +11,10 @@ import '../widgets/tile_sos_widget.dart';
 class LoginSOSPage extends StatelessWidget {
   LoginSOSPage({super.key});
 
-  final phoneController = TextEditingController();
+  final cpfController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signUserIn() {}
+  
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class LoginSOSPage extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             TextFieldPhoneSOSWidget(
-              controller: phoneController,
+              controller: cpfController,
               hintText: 'CPF',
               obscureText: false,
             ),
@@ -74,7 +75,12 @@ class LoginSOSPage extends StatelessWidget {
             const SizedBox(height: 50),
             ButtonSOSWidget(
               text: 'Entrar',
-              onTap: signUserIn,
+              onTap:(){
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FormSOSPage()));
+              },
             ),
             const SizedBox(height: 50),
             Padding(
